@@ -48,6 +48,8 @@ if (!fs.existsSync(templatePath)) {
 }
 
 let indexContent = fs.readFileSync(templatePath, 'utf8');
+//Normalize line endings for Windows/Linux
+indexContent = indexContent.replace(/\r\n/g, '\n');
 
 // Find the tool-content-container
 const startMarker = '<div id="tool-content-container">';
